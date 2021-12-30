@@ -11,10 +11,6 @@ const SalesSchema = {
     },
     value: {
         allowNull: false,
-        type: DataTypes.INTEGER
-    },
-    date: {
-        allowNull: false,
         type: DataTypes.STRING
     }
 }

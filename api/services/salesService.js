@@ -9,7 +9,9 @@ class SalesService {
     }
 
     async find() {
-        const rta = await models.Sales.findAll();
+        const rta = await models.Sales.findAll({
+            attributes: ['value']
+        });
         return rta;
     }
 }

@@ -1,8 +1,7 @@
 'use strict';
 
 const { SALES_TABLE } = require('./../models/salesModels');
-const { DataTypes, Sequelize } = require('sequelize');
-
+const {DataTypes, Sequelize} = require('sequelize');
 
 module.exports = {
   up: async (queryInterface) => {
@@ -12,20 +11,15 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
-      },
-      value: {
+    },
+    value: {
         allowNull: false,
-        type: DataTypes.INTEGER
-      },
-      date: {
-        allowNull: false,
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.NOW
-      }
-    });
+        type: DataTypes.STRING
+    }
+    })
   },
 
   down: async (queryInterface) => {
-    await queryInterface.dropTable(SALES_TABLE);
+    await queryInterface.dropTable(SALES_TABLE)
   }
 };

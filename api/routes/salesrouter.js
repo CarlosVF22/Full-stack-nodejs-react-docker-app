@@ -12,17 +12,23 @@ router.get('/', async (req,res) => {
     res.json(sales);
 });
 
-router.post('/',
-    validatorHandler(createSaleSchema, 'body'),
-    async (req,res,next) => {
-        try{
-            const body = req.body;
-            const newSale = await service.create(body);
-            res.status(201).json(newSale);
-        } catch(error){
-            next(error);
-        }
-    }
-);
+router.post('/', async(req,res) => {
+    const body = req.body;
+    const createSale = await service.create(body);
+    res.json(createSale);
+})
+
+// router.post('/',
+//     validatorHandler(createSaleSchema, 'body'),
+//     async (req,res,next) => {
+//         try{
+//             const body = req.body;
+//             const newSale = await service.create(body);
+//             res.status(201).json(newSale);
+//         } catch(error){
+//             next(error);
+//         }
+//     }
+// );
 
 module.exports = router;

@@ -1,39 +1,28 @@
 import React from "react";
+
 import './chronometer.css';
+
 import Button from 'react-bootstrap/Button';
 import { Container } from "react-bootstrap";
-import { useTimer } from "../../hooks/useTimer";
-import { formatTime } from "../../utils/formatTime";
 
-function Chronometer() {
-    const {
-        timer, 
-        isActive, 
-        isPaused, 
-        handleStart, 
-        handlePause, 
-        handleReset
-    } = useTimer(0);
-
-    const time = formatTime(timer);
-
+function Chronometer(props) {
     return (
         <Container>
-            <h2>{time}</h2>
+            <h2>{props.timeInFormat}</h2>
             <Button
-                onClick={handleStart}
+                onClick={props.handleStart}
                 variant={'success'}
             >
-                {'Comenzar'}
+                {`${props.textButtonStart}`}
             </Button>
             <Button
-                onClick={handlePause}
+                onClick={props.handlePause}
                 variant={'danger'}
             >
                 {'Pausar'}
             </Button>
             <Button
-                onClick={handleReset}
+                onClick={props.handleReset}
                 variant={'secondary'}
             >
                 {'Reiniciar'}

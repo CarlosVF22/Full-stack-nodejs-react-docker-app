@@ -1,4 +1,23 @@
-.App {
-  text-align: center;
+.header {
+  background: rgb(0,68,69);
+  background: linear-gradient(180deg, rgba(0,68,69,1) 55%, rgba(250,245,228,1) 83%);
+  height: 10vh;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.navbar {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.logo {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.main {
+  background-color: #faf5e4;
 }
 
