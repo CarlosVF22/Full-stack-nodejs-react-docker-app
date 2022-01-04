@@ -12,6 +12,7 @@ import Logo from './image/cueR.png';
 
 function App() {
 
+
   return (
     <React.Fragment>
       <header className='header'>
@@ -24,16 +25,21 @@ function App() {
       </header>
       <main className='main'>
         <section>
+          <form>
+            <label>¿Cuantas mesas tienes en tu billar?</label>
+            <input type="number"></input>
+            <input type="submit" value="Enviar"></input>
+          </form>
           <div className='row'>
-            <div className='col-sm-12 col-md-6 col-lg-3'><GameTable/></div>
-            <div className='col-sm-12 col-md-6 col-lg-3'><GameTable/></div>
-            <div className='col-sm-12 col-md-6 col-lg-3'><GameTable/></div>
-            <div className='col-sm-12 col-md-6 col-lg-3'><GameTable/></div>
+            <div className='col-sm-12'><GameTable/></div>
+            <div className='col-sm-12'><GameTable/></div>
+            <div className='col-sm-12'><GameTable/></div>
+            <div className='col-sm-12'><GameTable/></div>
           </div>
         </section>
-        <Modal>
+        {/* <Modal>
           <p>Teletransportacion</p>
-        </Modal>
+        </Modal> */}
       </main>
     </React.Fragment>
   );

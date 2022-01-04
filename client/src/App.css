@@ -21,3 +21,12 @@
   background-color: #faf5e4;
 }
 
+.row {
+  width: 100%;
+  padding: 5px;
+}
+
+.row div {
+  margin-top: 10px;
+}
+

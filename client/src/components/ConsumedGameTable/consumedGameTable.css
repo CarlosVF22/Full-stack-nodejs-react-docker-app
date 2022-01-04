@@ -1,0 +1,23 @@
+.consumedGameTable{
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 5px;
+    
+    
+    border-radius: 25px;
+    box-shadow:  -7px 7px 4px #9c9c9c,
+                7px -7px 4px #ffefe2;
+}
+
+.listProductsItems{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown{
+    display: flex;
+    justify-content: center;
+}

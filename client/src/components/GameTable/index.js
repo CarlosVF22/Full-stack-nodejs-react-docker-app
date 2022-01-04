@@ -6,8 +6,6 @@ import './gameTable.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Image from 'react-bootstrap/Image';
-import { Container } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
 
 import { Chronometer } from './../Chronometer';
 import { useTimer } from './../../hooks/useTimer';
@@ -33,7 +31,8 @@ function GameTable() {
         timeInFormat
     } = useTimer(0);
 
-    const products = ['cerveza', 'ron', 'aguardiente', 'derby']; // -> llamado a API con useEffect();
+    // const products = ['cerveza', 'ron', 'aguardiente', 'derby']; // -> llamado a API con useEffect();
+    const products = [{name: "cerveza", price: 4500}, {name: "Aguardiente Cristal x 750 ml", price: 60000}]
     
     const finishGame = (timer) => {
         const getHours = Math.floor(timer / 3600);
@@ -55,8 +54,10 @@ function GameTable() {
     }
 
     return (
-        <Container className='gameTable'>
-            <Image src={tableImage} fluid={true} />
+        <div className='gameTable'>
+            <picture className='imgContainer'>
+                <Image src={tableImage} fluid={true}/>
+            </picture>
             <Chronometer
                 timeInFormat={timeInFormat}
                 timer={timer}
@@ -66,16 +67,14 @@ function GameTable() {
                 handlePause={handlePause}
                 handleReset={handleReset}
                 textButtonStart={textButtonStart}
+                finishGame={finishGame}
             />
-            <Button
-                onClick={() => finishGame(timer)}
-            >
-                {'Terminar juego'}
-            </Button>
             <ConsumedGameTable
                 valueGame = {valueGame}
+                products = {products}
+                setValueGame = {setValueGame}
             />
-        </Container>
+        </div>
     );
 }
 

@@ -1,0 +1,63 @@
+.gameTable{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+
+    
+    border-radius: 50px;
+    box-shadow:  -10px 10px 20px #666666,
+                    10px -10px 20px #ffffff;
+}
+
+.gameTable img {
+    filter: drop-shadow(0 0 0.75rem #666666);
+    max-height: 240px;
+}
+
+.imgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.gameKeypad{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tableKeypad {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tableKeypad button {
+    border-radius: 25px;
+}
+
+.dropdown button {
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+.latestGameInfo {
+    text-align: center;
+    font-weight: bold;
+}
+
+.consumedTableInfo {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+.titleTableSummary {
+    text-align: center;
+    filter: drop-shadow(0 0 0.2rem #666666);
+}
+
+.chargeTotalText {
+    text-align: center;
+    font-weight: bold;
+}

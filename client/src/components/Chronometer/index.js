@@ -3,11 +3,11 @@ import React from "react";
 import './chronometer.css';
 
 import Button from 'react-bootstrap/Button';
-import { Container } from "react-bootstrap";
 
 function Chronometer(props) {
+    const finishGame = props.finishGame;
     return (
-        <Container>
+        <div className="chronometer">
             <h2>{props.timeInFormat}</h2>
             <Button
                 onClick={props.handleStart}
@@ -27,7 +27,12 @@ function Chronometer(props) {
             >
                 {'Reiniciar'}
             </Button>
-        </Container>
+            <Button
+                onClick={() => finishGame(props.timer)}
+            >
+                {'Terminar juego'}
+            </Button>
+        </div>
     );
 }
 
