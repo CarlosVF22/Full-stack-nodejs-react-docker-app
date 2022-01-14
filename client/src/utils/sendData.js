@@ -5,6 +5,6 @@ const sendData = (data) => {
         });
         alert(`Se ha enviado una venta por valor de ${data}`);
     } else {
-        alert('La venta no puese ser valor 0')
+        alert('La venta no puede ser valor 0')
     }
 }

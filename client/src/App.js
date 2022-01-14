@@ -25,11 +25,11 @@ function App() {
       </header>
       <main className='main'>
         <section>
-          <form>
+          {/* <form>
             <label>¿Cuantas mesas tienes en tu billar?</label>
             <input type="number"></input>
             <input type="submit" value="Enviar"></input>
-          </form>
+          </form> */}
           <div className='row'>
             <div className='col-sm-12'><GameTable/></div>
             <div className='col-sm-12'><GameTable/></div>

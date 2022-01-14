@@ -1,6 +1,7 @@
 .header {
   background: rgb(0,68,69);
   background: linear-gradient(180deg, rgba(0,68,69,1) 55%, rgba(250,245,228,1) 83%);
+  /* background: linear-gradient(220.55deg, #565656 0%, #181818 100%); */
   height: 10vh;
   display: grid;
   grid-template-columns: 1.5fr 1fr;
@@ -19,6 +20,7 @@
 
 .main {
   background-color: #faf5e4;
+  /* background: linear-gradient(220.55deg, #00B960 0%, #00552C 100%); */
 }
 
 .row {
