@@ -1,4 +1,5 @@
 import React from "react";
+import { sendData } from "../../utils/sendData";
 
 import './consumedGameTable.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,10 +14,10 @@ function ConsumedGameTable(props) {
     const [totalValueTable, setTotalValuTable] = React.useState(0);
     const products = props.products;
 
-    const productsItems = products.map((item) => <li onClick={() => addProduct(item.name, item.price)}
+    const productsItems = products.map((item) => <li onClick={() => addProduct(item.name, item.value)}
                                                     className="dropdown-item"
                                                     >
-                                                        {`${item.name}: $${item.price}`}
+                                                        {`${item.name}: $${item.value}`}
                                                 </li>);
 
     const consumedItems = listProductConsumed.map((item) => <li>{`${item[0]}: $${item[1]}`}</li>)
@@ -48,7 +49,7 @@ function ConsumedGameTable(props) {
         const newListProductConsumed = [...listProductConsumed]
         newListProductConsumed.push([itemName, itemPrice]);
         setListProductConsumed(newListProductConsumed);
-        const addProductToTotal = totalValueTable + itemPrice;
+        const addProductToTotal = parseInt(totalValueTable) + parseInt(itemPrice);
         setTotalValuTable(addProductToTotal);
     }
 
@@ -56,6 +57,11 @@ function ConsumedGameTable(props) {
         setTotalValueGame(0);
         setListProductConsumed([]);
         setTotalValuTable(0);
+    }
+
+    const collectTable = (totalValueTable) => {
+        sendData(`${totalValueTable}`);
+        resetTable();
     }
 
     return (
@@ -94,7 +100,7 @@ function ConsumedGameTable(props) {
             <div className="tableKeypad">
                 <button
                     className="btn btn-success"
-                    // onClick={() => resetTable()}
+                    onClick={() => collectTable(`${totalValueTable}`)}
                 >
                     Facturar mesa
                 </button>

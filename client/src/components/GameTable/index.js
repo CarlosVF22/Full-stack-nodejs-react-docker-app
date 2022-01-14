@@ -1,6 +1,4 @@
-import React from 'react';
-
-// import axios from 'axios';
+import React, { useEffect } from 'react';
 
 import './gameTable.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,6 +14,9 @@ import tableImage from './../../image/table.png';
 
 function GameTable() {
     const [valueGame, setValueGame] = React.useState(0);
+
+    const [products, setProducts] = React.useState([]);
+
     const baseURL = 'http://localhost:9000/api/v1';
 
     const costHourGame = 3000;
@@ -31,9 +32,22 @@ function GameTable() {
         timeInFormat
     } = useTimer(0);
 
-    // const products = ['cerveza', 'ron', 'aguardiente', 'derby']; // -> llamado a API con useEffect();
-    const products = [{name: "cerveza", price: 4500}, {name: "Aguardiente Cristal x 750 ml", price: 60000}]
-    
+    const getProducts = () => {
+        return fetch (`${baseURL}/products`)
+        .then(data => data.json())
+    }
+
+    useEffect(() => {
+        const mounted = true;
+        getProducts()
+            .then(items => {
+                if(mounted) {
+                    setProducts(items)
+                }
+            })
+            return () => mounted = false;
+    }, []);
+
     const finishGame = (timer) => {
         const getHours = Math.floor(timer / 3600);
         const minutes = Math.floor(timer / 60);
