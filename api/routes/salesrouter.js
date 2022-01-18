@@ -16,7 +16,13 @@ router.post('/', async(req,res) => {
     const body = req.body;
     const createSale = await service.create(body);
     res.json(createSale);
-})
+});
+
+router.post('/add-item', async(req,res) => {
+    const body = req.body;
+    const newItem = await service.addItem(body);
+    res.json(newItem);
+});
 
 // router.post('/',
 //     validatorHandler(createSaleSchema, 'body'),

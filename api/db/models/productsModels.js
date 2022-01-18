@@ -24,8 +24,8 @@ const ProductsSchema = {
 }
 
 class Products extends Model {
-    static associate() {
-
+    static associate(models) {
+     //
     }
 
     static config(sequelize) {

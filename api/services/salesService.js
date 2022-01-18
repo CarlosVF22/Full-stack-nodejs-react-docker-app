@@ -14,6 +14,11 @@ class SalesService {
         });
         return rta;
     }
+
+    async addItem(data) {
+        const newItem = await models.SalesProducts.create(data);
+        return newItem;
+    }
 }
 
 module.exports = SalesService;
