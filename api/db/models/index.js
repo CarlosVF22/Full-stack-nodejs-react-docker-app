@@ -1,13 +1,16 @@
-const {Sales, SalesSchema} = require('./salesModels');
-const {Products, ProductsSchema} = require('./productsModels');
-const {SalesProducts, salesProductsSchema} = require('./products-sales-Models');
+const {Suppliers, SuppliersSchema} = require('./supplierModel');
+const {Purchases, PurchasesSchema } = require('./purchasesModel');
+const {Products, ProductsSchema} = require('./productsModel');
+const {PurchasesProducts, PurchasesProductsSchema} = require('./purchasesProductsModel');
 
 function setupModels(sequelize) {
-    Sales.init(SalesSchema, Sales.config(sequelize));
+    Suppliers.init(SuppliersSchema, Suppliers.config(sequelize));
+    Purchases.init(PurchasesSchema, Purchases.config(sequelize));
     Products.init(ProductsSchema, Products.config(sequelize));
-    SalesProducts.init(salesProductsSchema, SalesProducts.config(sequelize));
+    PurchasesProducts.init(PurchasesProductsSchema, PurchasesProducts.config(sequelize));
 
-    Sales.associate(sequelize.models);
+    Suppliers.associate(sequelize.models);
+    Purchases.associate(sequelize.models);
 }
 
 module.exports = setupModels;
