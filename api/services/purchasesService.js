@@ -6,33 +6,33 @@ class PurchasesService {
     constructor() {}
 
     async create(data) {
-        const newProduct = await models.Purchases.create(data);
-        return newProduct;
+
     };
 
+    async addItem(data) {
+        const newItem = await models.PurchasesProducts.create(data);
+        return newItem;
+    }
+
     async findOne(id) {
-        const puchase = await models.Purchases.findByPk(id);
-        if (!product) {
-            throw boom.notFound('Product not found');
-        }
-        return puchase;
+        const purchase = await models.Purchases.findByPk(id, {
+            include: [
+                'items',
+            ]
+        });
+        return purchase;
     }
 
     async find(query) {
-        const puchase = await models.Purchases.findAll();
-        return puchase;
+
     };
     
     async update(id, changes) {
-        const puchase = await this.findOne(id);
-        const rta = await puchase.update(changes);
-        return rta;
+
     };
 
     async delete(id) {
-        const puchase = await this.findOne(id);
-        await puchase.destroy();
-        return {id};
+
     };
 }
 

@@ -18,7 +18,7 @@ const SuppliersSchema = {
         type: DataTypes.INTEGER
     },
     address: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.STRING
     }
 }

@@ -12,17 +12,21 @@ const SalesSchema = {
     value: {
         allowNull: false,
         type: DataTypes.STRING
+    },
+    discount: {
+        allowNull: true,
+        type: DataTypes.INTEGER
+    },
+    createAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW
     }
 }
 
 class Sales extends Model {
     static associate(models) {
-        this.belongsToMany(models.Products, {
-            as: 'items',
-            through: models.SalesProducts,
-            foreignKey: 'salesId',
-            otherKey: 'productId'
-        });
+        //
     }
 
     static config(sequelize) {

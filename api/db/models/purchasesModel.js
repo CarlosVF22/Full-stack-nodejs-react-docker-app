@@ -15,11 +15,6 @@ const PurchasesSchema = {
         allowNull: false,
         type: DataTypes.STRING
     },
-    createAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.NOW
-    },
     supplierId: {
         allowNull: false,
         type: DataTypes.INTEGER,
@@ -29,6 +24,11 @@ const PurchasesSchema = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
+    },
+    createAt: {
+        allowNull: false,
+        type: DataTypes.DATE,
+        defaultValue: Sequelize.NOW
     }
 }
 

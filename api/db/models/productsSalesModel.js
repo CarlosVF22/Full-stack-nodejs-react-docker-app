@@ -1,30 +1,21 @@
 const {Model, DataTypes, Sequelize} = require('sequelize');
 
-const {SALES_TABLE} = require('./salesModels');
-const {PRODUCT_TABLE} = require('./productsModels');
+const {PRODUCT_TABLE} = require('./productsModel');
+const {SALES_TABLE} = require('./salesModel');
 
-const SALES_PRODUCT_TABLE = "sales_products";
+const PRODUCT_SALE_TABLE = 'products_sales';
 
-const salesProductsSchema = {
-    id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: DataTypes.INTEGER
-    },
-    salesId: {
+const ProductsSalesSchema = {
+    salesId : {
         allowNull: false,
         type: DataTypes.INTEGER,
+        primaryKey: true,
         references: {
             model: SALES_TABLE,
             key: 'id'
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
-    },
-    amount: {
-        allowNull: false,
-        type: DataTypes.INTEGER
     },
     productId: {
         allowNull: false,
@@ -35,22 +26,26 @@ const salesProductsSchema = {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
+    },
+    amount: {
+        allowNull: false,
+        type: DataTypes.INTEGER
     }
 }
 
-class SalesProducts extends Model {
+class ProductsSales extends Model {
     static associate(models) {
-
+        //
     }
 
     static config(sequelize) {
         return {
             sequelize,
-            tableName: SALES_PRODUCT_TABLE,
-            modelName: 'SalesProducts',
+            tableName: PRODUCT_SALE_TABLE,
+            modelName: 'ProductsSales',
             timeStamps: false
         }
     }
 }
 
-module.exports = {SALES_PRODUCT_TABLE, salesProductsSchema, SalesProducts};
+module.exports = {PRODUCT_SALE_TABLE, ProductsSalesSchema, ProductsSales}

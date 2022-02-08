@@ -20,17 +20,17 @@ const ProductsSchema = {
     stock: {
         allowNull: false,
         type: DataTypes.INTEGER
-    },
-    createAt: {
-        allowNull: false,
-        type: DataTypes.DATE,
-        defaultValue: Sequelize.NOW
     }
 }
 
 class Products extends Model {
     static associate(models) {
-     //
+        this.belongsToMany(models.Sales, {
+            as: 'items',
+            through: models.ProductsSales,
+            foreignKey: 'productId',
+            otherKey: 'salesId'
+        });
     }
 
     static config(sequelize) {
