@@ -9,7 +9,7 @@ const ProductsSalesSchema = {
     salesId : {
         allowNull: false,
         type: DataTypes.INTEGER,
-        primaryKey: true,
+        // primaryKey: true,
         references: {
             model: SALES_TABLE,
             key: 'id'

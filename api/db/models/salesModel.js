@@ -1,5 +1,7 @@
 const {Model, DataTypes, Sequelize} = require('sequelize');
 
+const {GAMES_TABLE} = require('./gamesModel');
+
 const SALES_TABLE = "sales";
 
 const SalesSchema = {
@@ -8,6 +10,16 @@ const SalesSchema = {
         autoIncrement: true,
         primaryKey: true,
         type: DataTypes.INTEGER
+    },
+    gameId: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        references: {
+            model: GAMES_TABLE,
+            key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL'
     },
     value: {
         allowNull: false,
@@ -26,7 +38,9 @@ const SalesSchema = {
 
 class Sales extends Model {
     static associate(models) {
-        //
+        this.hasOne(models.Games, {
+            as: 'games'
+        });
     }
 
     static config(sequelize) {

@@ -45,7 +45,7 @@ class PurchasesProducts extends Model {
     static config(sequelize) {
         return {
             sequelize,
-            tableName: SALES_PRODUCT_TABLE,
+            tableName: PURCHASE_PRODUCT_TABLE,
             modelName: 'PurchasesProducts',
             timeStamps: false
         }

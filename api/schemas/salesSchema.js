@@ -6,15 +6,17 @@ const discount = Joi.number().integer();
 
 
 const createSaleschema = Joi.object({
-    
+    value: value.required(),
+    discount: discount.required()
 });
 
 const updateSaleschema = Joi.object({
-
+    value: value,
+    discount: discount
 });
 
 const getSaleschema = Joi.object({
-
+    id: id.required()
 });
 
-module.exports = {createSaleSchema}
+module.exports = {createSaleschema, updateSaleschema, getSaleschema}
